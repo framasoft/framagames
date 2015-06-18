@@ -1,0 +1,25 @@
+{
+  "version": "%VERSION%",
+  "name": "esviji",
+  "description": "%DESCRIPTION%",
+  "launch_path": "/",
+  "fullscreen": "true",
+  "orientation": ["portrait"],
+  "icons": {
+    "60": "/firefoxos-icon-60.png",
+    "128": "/firefoxos-icon-128.png",
+    "512": "/firefoxos-icon-512.png"
+  },
+  "developer": {
+    "name": "Nicolas Hoizey",
+    "url": "http://gasteroprod.com"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/manifest.appcache",
+  "locales": {
+    "fr": {
+      "description": "esviji est un jeu gratuit développé en HTML5 et SVG dans lequel vous devez détruire des balles pour gagner des points et progresser dans autant de niveaux que possible !"
+    }
+  },
+  "default_locale": "en"
+}

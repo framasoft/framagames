@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Sokoban Source Code Source Boxworld Javascript Jeu Video Gratuit Free Web Game
+Codes Sources GPL Freeware
+</title>
+<style type="text/css">
+:hover {
+  COLOR: #ff00ff; TEXT-DECORATION: none;
+  BACKGROUND-COLOR: c0e6ff;
+}
+:link, :visited {
+  COLOR: #0000c0; TEXT-DECORATION: none;
+}
+UL {
+  MARGIN: 0;
+  PADDING: 0;
+}
+LI A {
+  MARGIN: 0;
+  PADDING: 0;
+  display: block;
+  width: 100%;
+}
+
+H1 {
+BACKGROUND-COLOR : #cccccc;
+}
+span.h {
+ font-weight:bold;
+}
+</style>
+</head>
+<body bgcolor="#eeeeee">
+<script type="text/javascript">
+<!--
+if (document.all) {
+  top.window.resizeTo(780, 574);
+} else if (document.layers || document.getElementById) {
+  top.window.outerWidth = 475;
+  top.window.outerHeight = 700;
+}
+-->
+</script>
+<a name="top"></a>
+
+<ul>
+<li><a target="boxworld" href="sokojs.htm">Jouez à Sokoban (Boxworld) !</a></li>
+<li><a target="boxworld" href="http://michel.buze.perso.neuf.fr/Boxworld/sokojs.htm">
+Adresse en ligne : http://michel.buze.perso.neuf.fr/Boxworld/sokojs.htm</a></li>
+<li><a target="michbuze" href="http://michel.buze.perso.neuf.fr"> Auteur : Michel BUZE (http://michel.buze.perso.neuf.fr)</a></li>
+<hr>
+
+<li><a href="http://michbuze.club-internet.fr/sokojs.zip">
+Cliquer ici pour télécharger l'archive sokojs.zip contenant l'ensemble des fichiers
+qui constituent le jeu</a></li><hr>
+
+<li><a href="mailto:michbuze@club-internet.fr">
+Email : michbuze@club-internet.fr</a></li>
+
+<li><a target="weborama" href="http://vote.weborama.fr/fcgi-bin/vote.fcgi?8740">
+Voter pour ce jeu au WebOrama</a></li>
+
+<li><a target="livreor" href="http://www.free-livredor.com/index.php?lid=60836">
+Laisser un mot sur le LIVRE D'OR</a></li>
+</ul>
+
+
+<hr><span class="h">Règles du Jeu : </span>
+
+<br>
+Vous êtes Sokoban <img src="9.gif">, enfermé
+dans un entrepot (divisé en cases carrées),
+vous vous déplacez de case en case (vers le haut <img src="8.gif">, le bas <img src="9.gif">, la gauche <img src="6.gif">
+ou la droite <img src="7.gif">;
+avec les flèches du clavier ou la souris).<br>
+Une case
+peut comporter un mur <img src="2.gif">, une caisse <img src="4.gif">, ou une zone de rangement pour caisses
+(boule jaune) <img src="5.gif">.<font size=1><br><br></font>
+Un déplacement n'est possible que si la case de destination est vide
+(c’est-à-dire qu'il ne s'agit ni d'un mur, ni d'une caisse;
+en revanche, il peut s'agir d'une zone de rangement).<font size=1><br><br></font>
+Si cette case contient une caisse et que la suivante (dans la même direction)
+est vide (ou une zone de rangement), le mouvement est aussi autorisé :
+vous poussez alors la caisse dans la case vide
+et venez prendre sa place.<br>
+Avant : <img src="1.gif"><img src="7.gif"><img src="4.gif"><img src="5.gif"><img src="1.gif">
+Après : <img src="1.gif"><img src="1.gif"><img src="7.gif"><img src="3.gif"><img src="1.gif">
+
+<font size=1><br><br></font>
+Un niveau est résolu dès que toutes les caisses sont rangées
+(une caisse jaune devient rouge quand elle est rangée).
+Réussir est un vrai casse-tête (les deux premiers niveaux sont hyper simples
+pour vous familiariser, à partir du niveau 3, c'est moins évident...)<br>
+L'idéal est d'essayer de réussir avec le moins de déplacements et
+de poussées !
+
+<font size=1><br><br></font>
+(Remarque : les règles ne permettent pas de tirer une caisse !).<br>
+<pre>
+On ne tire pas : Avant : <img src="1.gif"><img src="1.gif"><img src="6.gif"><img src="4.gif"><img src="1.gif"> Après : <img src="1.gif"><img src="6.gif"><img src="1.gif"><img src="4.gif"><img src="1.gif"><br>
+Si on pouvait  : Avant : <img src="1.gif"><img src="1.gif"><img src="6.gif"><img src="4.gif"><img src="1.gif"> Après : <img src="1.gif"><img src="6.gif"><img src="4.gif"><img src="1.gif"><img src="1.gif">
+</pre>
+
+<hr>
+<img src="1.gif"> : une case vide
+<img src="2.gif"> : un mur<br>
+<img src="4.gif"> : une caisse
+<img src="3.gif"> : une caisse rangée<br>
+<img src="5.gif"> : une zone de rangement<br>
+<img src="9.gif"> : le personnage Sokoban (profession  : magasinier)
+<br>
+<hr>
+
+<span class="h">Historique :</span>
+
+Le Sokoban original a été écrit par le japonais Hiroyuki Imabayashi
+en 1982
+pour l'ordinateur Nec PC-8801
+et comportait 50 niveaux.<br>
+En 1988, il sera adapté pour PC.<br>
+En 1991, Jeng Long Jiang propose Boxworld, une autre version pour PC,
+avec 100 niveaux différents de Sokoban, et qui a été très populaire.<br>
+Le code source n'est pas disponible, mais on trouve la description
+des niveaux ici (remarque : il manque les niveaux 61 et 62, apparemment impossibles) :<br>
+
+<a target="boxesLevels" href="http://games.knet.ca/modules/pnFlashGames/games/boxesLevels">
+http://games.knet.ca/modules/pnFlashGames/games/boxesLevels</a>
+<br>
+J'ai commencé à écrire cette version JAVASCRIPT en Janvier 1998.<br>
+Elle a été à jour en Janvier 2005 (utilisation du clavier,
+écriture de cette page d'aide, 30 niveaux au lieu de 5...)
+puis mai 2006 (98 niveaux).
+<br>
+<a target=wikiSokoban href=http://fr.wikipedia.org/wiki/Sokoban>
+L'encyclopédie wikipedia propose un article à ce sujet : http://fr.wikipedia.org/wiki/Sokoban<br>
+(vous pouvez le modifier !)</a>
+
+<hr>
+<span class="h">Sources : </span>
+<a href="#sokojs.htm">[ sokojs.htm ]</a>
+<a href="#main">[ main.htm ]</a>
+<a href="#level">[ level.htm]</a>
+<a href="#level1">[ level1.htm ]</a>
+
+<hr>
+
+<span class="h">Remarques sur le fichier archive</span>
+<a href="http://michbuze.club-internet.fr/sokojs.zip">sokojs.zip</a>
+contenant l'ensemble des fichiers qui constituent le jeu</a><br>
+- Pour l'utiliser, vous devez extraire tous les fichiers dans un répertoire,
+plus ouvrir le fichier "sokojs.htm" avec votre navigateur.
+Il vous faut un logiciel de décompression zip.
+Pour Windows, on trouvera sur le site
+<a target="izarc" href="http://izarc.free.fr">http://izarc.free.fr</a>
+le logiciel izarc pour le faire (il est gratuit et en français).
+Vous pouvez aussi consulter ma page d'informations sur les formats d'archive :
+<a target="compress" href="http://michbuze.club-internet.fr/123/compress.htm">
+http://michbuze.club-internet.fr/123/compress.htm (ou http://zip.c.la)</a><br>
+- Il n'est pas nécessaire d'être connecté à Internet pour jouer.<br>
+- Les fichiers GIF sont les images utilisées par le jeu, et les
+autres fichiers .htm utilisés par le
+fichier "sokojs.htm", mais ils ne sont prévus pour être ouverts
+directement par un navigateur.<br>
+- Vous pouvez distribuer l'archive à qui vous voulez,
+sans être obligé de m'en informer,
+conformément à la licence GPL.<br>
+(Par exemple, vous ne devez pas supprimer des fichiers et conserver
+la licence).<br>
+Vous pouvez également inclure ce jeu dans un autre site web,
+toujours sans être obligé de m'en informer.<br>
+- Merci tout de même de
+<a href="mailto:michbuze@club-internet.fr">
+me contacter par email à l'adresse
+michbuze@club-internet.fr</a>
+si vous avez des critiques (bonnes ou mauvaises)
+à formuler, si vous avez traduit, amélioré, réécrit ce jeu dans un autre langage
+(ou que vous souhaiteriez le faire).
+
+<br><br>
+<span class="h">Remarques sur le code :</span>
+* Plutôt que d'utiliser le cadre level.htm pour afficher le niveau,
+il suffirait d'utiliser le code HTML :<br>
+&lt;div id="level"&gt;n&lt;/div&gt;
+et cette ligne de Javascript :<br>
+document.getElementById("level").firstChild.nodeValue = level<br>
+(mais ça ne fonctionne pas avec les anciens navigateurs).
+<br>
+
+<hr><span class="h">Licence :</span>
+Boxworld (Sokoban) - Puzzle Game<br>
+Programmation Copyright (C) Michel BUZE (licence GPL)<br>
+Graphismes et Niveaux Copyright (C) Jeng Long Jiang
+<br><br>
+
+Ce programme est un logiciel libre: vous pouvez le redistribuer
+et/ou le modifier selon les termes de la "GNU General Public License",
+version 2 ou (à votre choix) toute version ultérieure.
+
+<a style="display:block" target="gpl" href="http://www.gnu.org/licenses/gpl.html">
+Voir (en anglais) : http://www.gnu.org/licenses/gpl.html</a>
+
+<a style="display:block" target="gpl" href="http://www.gnu.org/copyleft/copyleft.fr.html">
+Voir (en français) : http://www.gnu.org/copyleft/copyleft.fr.html</a>
+<hr>
+
+<span class="h">Liens vers d'autres jeux en Javascript :</span>
+<ul><li>
+<a target="gdir" href="http://directory.google.fr/Top/Computers/Programming/Languages/JavaScript/Scripts/Games">
+http://directory.google.fr/Top/Computers/Programming/Languages/JavaScript/Scripts/Games</a></li><li>
+<a target="ydir" href="http://dir.yahoo.com/Computers_and_Internet/Programming_and_Development/Languages/JavaScript/Games">
+http://dir.yahoo.com/Computers_and_Internet/Programming_and_Development/Languages/JavaScript/Games</a>
+</li></ul></div>
+
+<hr>
+<ul><li>
+<h1><a name="boxworld" href="#top">sokojs.htm</a></h1>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;TITLE&gt;Sokoban Online Boxworld Jeu Gratuit Freeware Game DHTML ( HTML + Javascript )
+(C) Michel Buze&lt;/TITLE&gt;
+&lt;META HTTP-EQUIV="Keywords" CONTENT="boxworld,javascript,sokoban,jeu,jeux,game,buze,web"&gt;
+&lt;META NAME="Keywords" CONTENT="boxworld,javascript,sokoban,jeu,jeux,game,buze,web"&gt;
+&lt;/head&gt;
+
+&lt;frameset noresize border="0" rows="0,*,70"&gt;
+&lt;frame src="level1.htm"&gt;
+&lt;frame&gt;
+&lt;frame&gt;
+&lt;noframes&gt;
+&lt;body&gt;
+Désolé, votre navigateur doit supporter les cadres (frames)
+&lt;/body&gt;
+&lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<ul><li>
+<h1><a name="main" href="#top">main.htm</a></h1>
+
+<pre>
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+&lt;!--
+if (parent.frames[0] == null) { document.location = "sokojs.htm"  }
+//--&gt;
+&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+&lt;!--
+
+var ie4= (navigator.appName == "Microsoft Internet Explorer")?1:0;
+var ns4= (navigator.appName=="Netscape")?1:0;
+function Nmajevent(evenement)
+{
+           if (evenement.which == 52 || evenement.which == 37) {
+        Move(eval(manpos) - 1)
+    } else if (evenement.which == 56 || evenement.which == 38) {
+        Move(eval(manpos) - 10)
+    } else if (evenement.which == 54 || evenement.which == 39) {
+        Move(eval(manpos) + 1)
+    } else if (evenement.which == 50 || evenement.which == 40) {
+        Move(eval(manpos) + 10)
+    }
+}
+
+function eventSetup() {
+  if (ie4){
+    document.onkeydown = Imajevent;
+  }
+  if(ns4){
+    document.captureEvents( Event.KEYDOWN );
+    document.onkeydown = Nmajevent;
+  }
+}
+
+eventSetup();
+
+function Imajevent(){
+         if (window.event.keyCode == 37) {
+     Move(eval(manpos) - 1)
+  } else if (window.event.keyCode == 38) {
+     Move(eval(manpos) - 10)
+  } else if (window.event.keyCode == 39) {
+     Move(eval(manpos) + 1)
+  } else if (window.event.keyCode == 40) {
+     Move(eval(manpos) + 10)
+  } else if (window.event.keyCode == 27) {
+     UndoMove()
+  }  
+}
+//--&gt;
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body bgcolor="black" style="margin:0"&gt;
+
+&lt;script type="text/javascript"&gt;
+&lt;!--
+if (document.all) {
+  top.window.resizeTo(400, 600);
+} else if (document.layers || document.getElementById) {
+  top.window.outerWidth = 350;
+  top.window.outerHeight = 600;
+}
+
+Row    = 10
+Col    = 10
+
+land   = 0
+floor  = 1
+wall   = 2
+boxin  = 3
+boxout = 4
+dest   = 5
+
+img0 = new Image(30, 30); img0.src = "0.gif";
+img1 = new Image(30, 30); img1.src = "1.gif";
+img2 = new Image(30, 30); img2.src = "2.gif";
+img3 = new Image(30, 30); img3.src = "3.gif";
+img4 = new Image(30, 30); img4.src = "4.gif";
+img5 = new Image(30, 30); img5.src = "5.gif";
+
+man9  = new Image(30, 30); man9.src  = "6.gif"; // left
+man11 = new Image(30, 30); man11.src = "7.gif"; // right
+man0  = new Image(30, 30); man0.src  = "8.gif"; // up
+man20 = new Image(30, 30); man20.src = "9.gif"; // down
+
+level = new Array()
+maxLevel = 30
+moves = 0
+
+
+function ReloadLevel() {
+  manpos = parent.frames[0].document.forms[0].elements[100].value
+  ua = -1
+  moves = 0
+  nbBoxin = 0
+  for (i = 0 ; i &lt; Row * Col; i++) {
+    level[i] = parent.frames[0].document.forms[0].elements[i].value
+    if (level[i] == dest) nbBoxin++;
+    document.images[i].src = eval("img" + level[i] + ".src")
+  }
+  document.images[manpos].src = eval("man20.src")
+  window.status = "Your moves : 0"  
+
+  usrc = man20.src
+}
+
+function GoLevel(n) {
+  if (n == nbLevel) ReloadLevel()
+  parent.frames[0].document.location = "level" + n + ".htm"
+}
+
+function UndoMove() {
+  if (ua != -1) {
+    document.images[manpos].src = eval("img" + level[manpos] + ".src")  
+    document.images[ua].src = eval("img" + lua + ".src")  
+    document.images[ub].src = eval("img" + lub + ".src")    
+    level[ua] = lua
+    level[ub] = lub  
+    level[um] = lum  
+    document.images[manpos = um].src = usrc        
+    nbBoxin = unb
+    window.status = "Your moves : " + --moves
+    ua = -1
+  }  
+}
+
+function Move(a) {
+  d = a - manpos
+  
+  if (d == 1 || d == -1 || d == Col || d == -Col) {       
+    if (level[a] == boxin || level[a] == boxout)  {
+      b = a + d  
+      um = manpos
+      ua = a
+      ub = b
+      lum = level[manpos]    
+      lua = level[a]
+      lub = level[b]
+      usrc = document.images[manpos].src
+      unb = nbBoxin
+      window.status = "Your moves : " + ++moves
+      if (level[b] == floor || level[b] == dest)  {
+        level[a] == boxin ? (level[a] = dest,  nbBoxin++) : level[a] = floor
+        level[b] == dest  ? (level[b] = boxin, nbBoxin--) : level[b] = boxout
+        document.images[b].src = eval("img" + level[b] + ".src")
+      }
+    }
+
+    if (level[a] == floor || level[a] == dest) {
+      document.images[manpos].src = eval("img" + level[manpos] + ".src")
+      document.images[manpos = a].src = eval("man" + (d + 10) + ".src")
+    }
+
+    if (nbBoxin == 0) {
+      if (nbLevel &lt; maxLevel) {
+        alert("You have done a good job !")
+        parent.frames[0].location = "level" + (++nbLevel) + ".htm"
+        GoLevel(nbLevel)
+      } else {
+        alert("Congratulations !")
+        GoLevel(1)
+      }
+    }
+  }
+}
+  window.focus()
+  window.status = ""
+
+  document.write("&lt;TABLE cellspacing=\"0\" cellpadding=\"0\" border=0&gt;&lt;TR&gt;&lt;TD VALIGN=TOP&gt;")
+  document.write("&lt;TABLE cellspacing=\"0\" cellpadding=\"0\" border=0&gt;&lt;TR&gt;")
+
+  nbBoxin = 0
+
+  for (y = 0 ; y &lt; Row; y++) {
+    document.write ("&lt;TR&gt;")
+    for (x = 0; x &lt; Col; x++) {
+      level[x + Row * y] = parent.frames[0].document.forms[0].elements[x + Row * y].value
+      if (level[x + Row * y] == dest) nbBoxin++
+      if (level[x + Row * y] == land || level[x + Row * y] == wall)
+        document.write("&lt;TD VALIGN=TOP&gt;",
+          "&lt;IMG align=middle width=\"30\" heigth=\"30\" border=0 src=\"", level[x + Row * y], ".gif\"&lt;\/TD&gt;")
+      else
+        document.write("&lt;TD VALIGN=TOP&gt;&lt;A HREF=\"JavaScript:Move(", x + Row * y, ")\"&gt;",
+          "&lt;IMG align=middle width=\"30\" heigth=\"30\" border=0 src=\"", level[x + Row * y], ".gif\"&lt;/A&gt;&lt;\/TD&gt;")      
+    }
+    document.write("&lt;\/TR&gt;")
+  }
+
+  document.write("&lt;\/TABLE&gt;")
+  manpos = parent.frames[0].document.forms[0].elements[100].value
+  nbLevel = parent.frames[0].document.forms[0].elements[101].value
+  ua = -1
+  
+  document.write("&lt;TABLE&gt;&lt;TD&gt;&lt;CENTER&gt;")
+
+ document.write("&lt;FORM&gt;",
+  "&lt;INPUT TYPE=button onClick=\"Javascript:ReloadLevel();\" value=\"Restart\"&gt;",
+  "&lt;INPUT TYPE=button onClick=\"Javascript:UndoMove();\" value=\"Undo\"&gt;")
+  for (i = 1; i &lt;= maxLevel; i++) {
+    if (i % 16 == 0) document.write("&lt;br&gt;")
+    document.write("&lt;INPUT TYPE=\"button\" onClick=\"Javascript:GoLevel(", i, ");\" value=\"", i, "\"&gt;")
+  }
+
+  document.write("&lt;\/FORM&gt;&lt;\/TD&gt;&lt;\/TR&gt;&lt;\/TABLE&gt;&lt;\/TD&gt;&lt;\/TR&gt;&lt;\/TABLE&gt;")
+
+  document.images[manpos].src = eval("man20.src")
+//--&gt;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<ul><li>
+<h1><a name="level" href="#top">level.htm</a></h1>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+&lt;!--
+if (parent.frames[0] == null) { document.location = "sokojs.htm"  }
+
+document.write("&lt;body margin=0 bgcolor=\"black\"&gt;&lt;b&gt;&lt;FONT FACE=\"Comic Sans MS\"
+  SIZE=5 COLOR=\"red\"&gt;LEVEL ",
+  parent.frames[0].document.forms[0].elements[101].value, "&lt;\/font&gt;&lt;\/b&gt;");
+
+document.write("&nbsp;&lt;a style=\"color:#eeeeee;font-face:arial;\"
+href=\"http://michel.buze.perso.neuf.fr/sokojs.zip\"&gt;[zip]&lt;\/a&gt;",
+
+"&nbsp;&lt;a target=\"src\" style=\"color:#eeeeee;font-face:arial;\"
+href=\"src.htm\"&gt;[info]&lt;\/a&gt;")
+
+//--&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+</pre>
+
+<ul><li>
+<h1><a name="level1" href="#top">level1.htm</a></h1>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=""&gt;
+&lt;script type="text/javascript"&gt;
+&lt;!--
+if (parent.frames[0] == null) { document.location = "sokojs.htm"  }
+
+l = new Array(
+//123456789
+"          ", // 0  # = wall
+"   ###    ", // 1  . = dest
+"   #.#    ", // 2  _ = floor
+"   #_#### ", // 3  * = boxin
+" ###$_$.# ", // 4  $ = boxout
+" #._$_### ", // 5
+" ####$#   ", // 6
+"    #.#   ", // 7
+"    ###   ", // 8
+"          ") // 9
+//123456789
+
+for  (x = 0; x &lt; 10; x++)
+  for  (y = 0; y &lt; 10; y++)
+    document.write("&lt;INPUT TYPE=\"button\" value=\"",
+      ' _#*$.'.indexOf(l[x].substring(y, y + 1)), "\"&gt;")
+
+document.write("&lt;INPUT TYPE=\"button\" value=\"55\"&gt;",
+               "&lt;INPUT TYPE=\"button\" value=\"1\"&gt;&lt;\/FORM&gt;")
+
+parent.frames[1].location = "main.htm"
+parent.frames[2].location = "level.htm"
+//--&gt;
+&lt;/script&gt;&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

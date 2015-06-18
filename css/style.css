@@ -1,0 +1,136 @@
+body {
+    background:#eee;
+    font-size:14px !important;
+}
+
+.container.ombre {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+}
+
+/* Header style */
+header h1 {
+    font-family: "DejaVu Sans",Verdana,Geneva,sans-serif !important;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+header .lead {
+    color: #666;
+    font: italic 1.3em/1.35 "PT Sans",Arial,sans-serif;
+}
+/* End header style */
+
+/* Tips */
+.tips {
+    list-style: none;
+    padding: 0px;
+    margin:0 auto;
+}
+
+.tips > li {
+    position: relative;
+    overflow: hidden;
+    width: 320px;
+    height: 235px;
+    float:left;
+    background-color: white;
+    border-top: 1px solid #EEE;
+    box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 0.7);
+    margin: 12px 10px 25px 10px;
+}
+
+/* gris */
+.tips > li .front,
+.tips > li .back {
+    border-bottom: 4px solid #C4C4C4;
+    background:#F3F3F3;
+}
+
+.tips h3 {
+    margin-top: 0px;
+    margin-bottom: 12px;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center
+}
+
+.tips .description {
+    font-size:16px;
+    margin-top:20px;
+}
+.play, .credits {
+    position:absolute;
+    width:300px;
+}
+.play {
+    bottom: 90px;
+}
+.credits {
+    bottom: 10px;
+}
+
+.tip-content {
+    position: absolute;
+    width: 320px;
+    height: 470px;
+    top: 0px;
+
+    -webkit-transition: all 400ms ease 0s;
+    -moz-transition: all 400ms ease 0s;
+    -o-transition: all 400ms ease 0s;
+    transition: all 400ms ease 0s;
+}
+
+.front, .back {
+    padding: 10px;
+    height: 235px;
+}
+
+.tips > li:hover .tip-content {
+    top: -235px;
+}
+
+.show-back {
+    top: -235px;
+}
+
+h1 a, h3 a, h4 a,
+h1 a:hover, h3 a:hover, h4 a:hover,
+h1 a:focus, h3 a:focus, h4 a:focus {
+    text-decoration:none;
+}
+
+.tips .popover h3 {
+    font-size: 14px;
+    margin-bottom:0;
+}
+.tips .popover {
+    font-size: 14px;
+    left: 10px !important;
+    width: 300px;
+    height: 120px;
+}
+.tips .popover-content {
+    padding:9px 5px;
+}
+.tips .popover > .arrow {
+    left:80%;
+}
+
+@media (max-width: 740px) {
+    .tips {
+        width:340px;
+    }
+}
+@media (min-width: 992px) {
+    .tips {
+        width:680px;
+    }
+}
+@media (min-width: 1200px) {
+    .tips {
+        width:1020px;
+    }
+}

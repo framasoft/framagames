@@ -1,0 +1,82 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Fichier lisezmoi.txt du jeu Boxworld (Sokoban) pour Javascript.
+Copyright (C) Michel BUZE 1998-2005
+e-mail : michbuze@club-internet.fr site web : http://michbuze.club.fr
+article sur Sokoban sur Wikipedia (Encyclopédie libre) :
+http://fr.wikipedia.org/wiki/Sokoban
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Pour jouer à ce jeu, il vous faut un navigateur web, tel que Internet Explorer,
+(Mozilla) Firefox, Google Chrome, Opera, Apple Safari, ou autre, capable d'afficher des cadres (frames),
+d'interpréter le Javascript, et (si possible) d'afficher des images GIF.
+
+Il n'est pas nécessaire d'être connecté à Internet pour jouer.
+Si on est connecté, il suffit d'ouvrir la page : http://michbuze.club.fr/Boxworld/sokojs.htm
+
+Sinon, pour lancer le jeu, il faut (la première fois) extraire tous les fichiers du
+fichier archive sokojs.zip, puis ouvrir le fichier "sokojs.htm" avec votre navigateur.
+
+Les fichiers GIF sont les images utilisées par le jeu, et les fichiers main.htm,
+level.htm et leveln.htm (n=0 à 97) sont nécessaires au jeu.
+Si on ouvre ces fichiers .htm, ils afficheront à la place le fichier "sokojs.htm".
+
+Le fichier src.htm peut être ouvert pour afficher plus d'informations,
+il n'est pas nécessaire pour le jeu, ni ce fichier lisezmoi.txt
+
+Remarque : En résolution 800*600 avec Internet Explorer, il vaut mieux aller 
+dans le menu "Affichage" et décocher "Barre d'état".
+
+Programmation Copyright (C) Michel BUZE (licence GPL)
+Graphismes et Niveaux Copyright (C) Jeng Long Jiang
+
+Ce programme est un logiciel libre :
+vous pouvez le redistribuer et/ou le modifier selon les termes de la GPL
+("GNU General Public License"), version 2 ou (à votre choix) toute version ultérieure.
+
+Voir (en anglais) : http://www.gnu.org/licenses/gpl.html
+Voir (en français) : http://www.gnu.org/copyleft/copyleft.fr.html
+
+Vous pouvez distribuer l'archive à qui vous voulez, sans être obligé de m'en informer,
+conformément à la licence GPL.
+(Par exemple, vous ne devez pas supprimer des fichiers et conserver la licence).
+Vous pouvez également inclure ce jeu dans un autre site web,
+toujours sans être obligé de m'en informer.
+Merci tout de même de me contacter par email à l'adresse michbuze@club-internet.fr
+si vous avez des critiques (bonnes ou mauvaises) à formuler, si vous avez traduit,
+amélioré, réécrit ce jeu dans un autre langage (ou que vous souhaiteriez le faire).
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Règles du Jeu @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Vous déplacez (vers le haut, le bas, à gauche ou à droite) un personnage dans une
+pièce divisée en cases carrées qui comportent des murs et des caisses que vous
+devez pousser vers des zones de rangement (représentées ici par des boules jaunes).
+Un déplacement n'est possible que si la case de destination est vide
+(c’est-à-dire qu'il ne s'agit ni d'un mur, ni d'une caisse;
+en revanche, il peut s'agir d'une zone de rangement).
+Si cette case contient une caisse et que la suivante est vide,
+le mouvement est aussi autorisé : vous poussez alors la caisse dans la case vide
+(qui peut être une zone de rangement) et venez prendre sa place.
+Un niveau est résolu dès que toutes les caisses sont rangées
+(ici, les caisses jaunes deviennent rouges quand elles sont rangées).
+Réussir est un vrai casse-tête (les deux premiers niveaux sont hyper simples
+pour vous familiariser, à partir du niveau 3, c'est moins évident...)
+L'idéal est d'essayer de réussir avec le moins de déplacements !
+
+Certaines poussées de caisses peuvent conduire à une situation où il est impossible
+de réussir le niveau, mais ça le jeu ne vous le dit pas, c'est à vous de vous en
+rendre compte, vous n'avez plus qu'à recommencer.
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Remarques sur le fichier archive sokojs.zip
+contenant l'ensemble des fichiers qui constituent le jeu
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Pour l'utiliser, vous devez extraire TOUS les fichiers dans un répertoire,
+plus ouvrir le fichier "sokojs.htm" avec votre navigateur.
+Il vous faut un logiciel de décompression zip.
+Pour Windows, on trouvera sur le site http://izarc.free.fr
+le logiciel izarc pour le faire (il est gratuit et en français).
+Vous pouvez aussi consulter ma page d'informations sur les formats d'archive :
+http://michbuze.club.fr/123/compress.htm (ou http://zip.c.la)

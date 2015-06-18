@@ -1,0 +1,2 @@
+Apache
+https://github.com/digitalfruit/limejs

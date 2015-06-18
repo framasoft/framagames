@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!--
+SokoJS - Sokoban Game for Javascript
+Copyright (C) Michel BUZE
+e-mail : michbuze@club-internet.fr
+website : http://michel.buze.perso.neuf.fr
+
+Ce programme est un logiciel libre: vous pouvez le redistribuer
+et/ou le modifier selon les termes de la "GNU General Public License",
+version 2 ou (à votre choix) toute version ultérieure.
+Voir : http://www.gnu.org/licenses/gpl.html
+-->
+<html>
+<head>
+<title></title>
+<script src="/back.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+if (parent.frames[0] == null) { document.location = "sokojs.htm"  }
+//-->
+</script>
+
+<script type="text/javascript">
+<!--
+
+var ie4= (navigator.appName == "Microsoft Internet Explorer")?1:0;
+var ns4= (navigator.appName=="Netscape")?1:0;
+
+Row    = 16
+Col    = 16
+
+function Nmajevent(evenement)
+{
+           if (evenement.which == 52 || evenement.which == 37) {
+        Move(eval(manpos) - 1)
+    } else if (evenement.which == 56 || evenement.which == 38) {
+        Move(eval(manpos) - Row)
+    } else if (evenement.which == 54 || evenement.which == 39) {
+        Move(eval(manpos) + 1)
+    } else if (evenement.which == 50 || evenement.which == 40) {
+        Move(eval(manpos) + Row)
+    }
+}
+
+function eventSetup() {
+  if (ie4){
+    document.onkeydown = Imajevent;
+  }
+  if(ns4){
+    document.captureEvents( Event.KEYDOWN );
+    document.onkeydown = Nmajevent;
+  }
+}
+
+eventSetup();
+
+function Imajevent(){
+         if (window.event.keyCode == 37) {
+     Move(eval(manpos) - 1)
+  } else if (window.event.keyCode == 38) {
+     Move(eval(manpos) - Row)
+  } else if (window.event.keyCode == 39) {
+     Move(eval(manpos) + 1)
+  } else if (window.event.keyCode == 40) {
+     Move(eval(manpos) + Col)
+  }
+}
+//-->
+</script>
+
+</head>
+<body bgcolor="black" style="margin:2px;margin-top:-29px">
+
+<script type="text/javascript">
+<!--
+if (document.all) {
+  top.window.resizeTo(800, 600);
+} else if (document.layers || document.getElementById) {
+  top.window.outerWidth = 800;
+  top.window.outerHeight = 600;
+}
+
+land   = 0
+floor  = 1
+wall   = 2
+boxin  = 3
+boxout = 4
+dest   = 5
+
+img0 = new Image(30, 30); img0.src = "0.gif";
+img1 = new Image(30, 30); img1.src = "1.gif";
+img2 = new Image(30, 30); img2.src = "2.gif";
+img3 = new Image(30, 30); img3.src = "3.gif";
+img4 = new Image(30, 30); img4.src = "4.gif";
+img5 = new Image(30, 30); img5.src = "5.gif";
+
+manL  = new Image(30, 30); manL.src = "6.gif"; // left
+manR  = new Image(30, 30); manR.src = "7.gif"; // right
+manU  = new Image(30, 30); manU.src = "8.gif"; // up
+manD  = new Image(30, 30); manD.src = "9.gif"; // down
+
+level = new Array()
+maxLevel = 97
+moves = 0
+
+function ReloadLevel() {
+  manpos = parent.frames[0].document.forms[0].elements[Row*Col].value
+  moves = 0
+  window.status = ""
+  nbBoxin = 0
+  for (i = 0 ; i < Row * Col; i++) {
+    level[i] = parent.frames[0].document.forms[0].elements[i].value
+    if (level[i] == dest) nbBoxin++;
+    document.images[i].src = eval("img" + level[i] + ".src")
+  }
+  document.images[manpos].src = eval("manD.src")
+}
+
+function GoLevel(n) {
+  if (n == nbLevel) ReloadLevel()
+  parent.frames[0].document.location = "level" + n + ".htm"
+}
+
+function dir(d) {
+  if (d ==   -1) return "L";
+  if (d ==    1) return "R";  
+  if (d ==  Row) return "D";    
+  if (d == -Row) return "U";      
+}
+
+function print_moves(m) {
+ document.getElementById('moves').firstChild.nodeValue=m + " déplacements"
+}
+function UndoMove() {
+  if (ua != -1) {
+    document.images[manpos].src = eval("img" + level[manpos] + ".src")  
+    document.images[ua].src = eval("img" + lua + ".src")  
+    document.images[ub].src = eval("img" + lub + ".src")    
+    level[ua] = lua
+    level[ub] = lub  
+    level[um] = lum  
+    document.images[manpos = um].src = usrc        
+    nbBoxin = unb
+    print_moves(--moves)
+    ua = -1
+  }  
+}
+
+function Move(a) {
+  d = a - manpos
+  
+  if (d == 1 || d == -1 || d == Col || d == -Col) {       
+    if (level[a] == boxin || level[a] == boxout)  {
+      b = a + d  
+      um = manpos
+      ua = a
+      ub = b
+      lum = level[manpos]    
+      lua = level[a]
+      lub = level[b]
+      usrc = document.images[manpos].src
+      unb = nbBoxin
+      print_moves(++moves)
+      if (level[b] == floor || level[b] == dest)  {
+        level[a] == boxin ? (level[a] = dest,  nbBoxin++) : level[a] = floor
+        level[b] == dest  ? (level[b] = boxin, nbBoxin--) : level[b] = boxout
+        document.images[b].src = eval("img" + level[b] + ".src")
+      }
+    }
+
+    if (level[a] == floor || level[a] == dest) {
+      document.images[manpos].src = eval("img" + level[manpos] + ".src")
+      document.images[manpos = a].src = eval("man" + dir(d) + ".src")      
+    }
+
+    if (nbBoxin == 0) {
+      if (nbLevel < maxLevel) {
+        alert("Vous avez fait du bon travail !")
+        parent.frames[0].location = "level" + (++nbLevel) + ".htm"
+        GoLevel(nbLevel)
+      } else {
+        alert("Félicitations !")
+        GoLevel(0)
+      }
+    }
+  }
+}
+  window.focus()
+  window.status = ""
+
+  document.write("<TABLE margin=0 cellspacing=\"0\" cellpadding=\"0\" margin=0 border=0><tr><TD VALIGN=TOP>")
+  document.write("<TABLE cellspacing=\"0\" cellpadding=\"0\" margin=0 border=0><TR>")
+
+  nbBoxin = 0
+
+  for (y = 0 ; y < Row; y++) {
+    document.write ("<TR>")
+    for (x = 0; x < Col; x++) {
+      level[x + Row * y] = parent.frames[0].document.forms[0].elements[x + Row * y].value
+      if (level[x + Row * y] == dest) nbBoxin++
+      if (level[x + Row * y] == land || level[x + Row * y] == wall)
+        document.write("<TD VALIGN=TOP>",
+          "<IMG align=middle width=\"30\" heigth=\"30\" border=0 src=\"", level[x + Row * y], ".gif\"<\/TD>")
+      else
+        document.write("<TD VALIGN=TOP><A HREF=\"JavaScript:Move(", x + Row * y, ")\">",
+          "<IMG align=middle width=\"30\" heigth=\"30\" border=0 src=\"", level[x + Row * y], ".gif\"</A><\/TD>")      
+    }
+    document.write("<\/TR>")
+  }
+  document.write("<\/TABLE>")
+  manpos = parent.frames[0].document.forms[0].elements[Row*Col].value
+  nbLevel = parent.frames[0].document.forms[0].elements[(Row*Col)+1].value
+
+  document.write("<td>&nbsp;<td><TABLE cellspacing=0 cellpadding=0><TD><CENTER>")
+
+ document.write("<FORM>",
+  "<INPUT TYPE=button onClick=\"Javascript:ReloadLevel();\" value=\"Recommencer\">",
+  "<INPUT TYPE=button onClick=\"Javascript:UndoMove();\" value=\"Annuler\"><p id=\"moves\" style=\"color:white\">0 déplacement</p></center><br>")
+  for (i = 0; i <= maxLevel; i++) {
+    if (i % 9 == 0) document.write("<br>")
+    document.write("<INPUT style='font-size:9px;border:0;padding:0;background-color:black;color:white' TYPE=\"button\" onClick=\"Javascript:GoLevel(", i, ");\" value=\"", (i<9?"&nbsp;&nbsp;":"")+(i+1), "\">")
+  }
+  document.write("<\/FORM></table></table>")
+
+  document.images[manpos].src = eval("manD.src")
+//-->
+</script>
+
+
+</body>
+</html>

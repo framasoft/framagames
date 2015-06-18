@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!--
+SokoJS - Sokoban Game for Javascript
+Copyright (C) Michel BUZE
+e-mail : michbuze@club-internet.fr
+website : http://michel.buze.perso.neuf.fr
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//-->
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+<!--
+if (parent.frames[0] == null) { document.location = "sokojs.htm"  }
+Row=16
+Col=16
+document.write("<body style=\"margin:0\" bgcolor=\"black\">&nbsp;<b><FONT FACE=\"Comic Sans MS\" SIZE=4 COLOR=\"red\">LEVEL ",
+  eval(parent.frames[0].document.forms[0].elements[(Row*Col)+1].value) + 1);
+
+document.write("<\/font><\/b><br>&nbsp;<a style=\"color:#eeeeee;font-face:arial;\" href=\"http://michel.buze.perso.neuf.fr/sokojs.zip\">[zip]<\/a>",
+
+"&nbsp;<a target=\"src\" style=\"color:#eeeeee;font-face:arial;\" href=\"src.htm\">[info]<\/a><\/body>")
+
+//-->
+</script>
+</head>
+</html>
